@@ -86,10 +86,10 @@ app.route("/articles/:articleTitle")
   })
 
   .put(function(req,res){
-      Article.updateOne(
+      Article.replaceOne(
           {title:req.params.articleTitle},
           {title: req.body.title, content: req.body.content},
-          {overwrite: true},
+        
           function(err)
           {
               if(!err)
@@ -98,7 +98,7 @@ app.route("/articles/:articleTitle")
               }
               else{
                   console.log(err);
-                  res.send(err);
+                  res.send("jdekjdgjedge");
               }
           }
       )
